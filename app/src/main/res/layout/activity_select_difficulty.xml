@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradation_animation"
+    tools:context=".SelectDifficulty">
+
+    <!--2. 난이도설정화면-->
+    <TextView
+        android:id="@+id/difficultyST"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="난이도설정"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.114" />
+
+    <!--3. 쉬움설정버튼-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/Easy"
+        android:layout_width="184dp"
+        android:layout_height="105dp"
+        android:backgroundTint="@color/clickable_button"
+        android:text="쉬움"
+        android:textColor="@color/clickable_text"
+        android:textColorHighlight="@color/clickable_text"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.280" />
+
+    <!--4. 보통설정버튼-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/Normal"
+        android:layout_width="184dp"
+        android:layout_height="105dp"
+        android:backgroundTint="@color/clickable_button"
+        android:text="보통"
+        android:textColor="@color/clickable_text"
+        android:textColorHighlight="@color/clickable_text"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.580" />
+
+    <!--5. 어려움설정버튼-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/Hard"
+        android:layout_width="184dp"
+        android:layout_height="105dp"
+        android:backgroundTint="@color/clickable_button"
+        android:text="어려움"
+        android:textColor="@color/clickable_text"
+        android:textColorHighlight="@color/clickable_text"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.880" />
+
+    <!--6. 뒤로가기-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/Back"
+        android:layout_width="78dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/clickable_button"
+        android:text="뒤로가기"
+        android:textColor="@color/clickable_text"
+        android:textColorHighlight="@color/clickable_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.019"  />
+
+    <!--7. 메인화면으로가기-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/Home"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/clickable_button"
+        android:text="홈"
+        android:textColor="@color/clickable_text"
+        android:textColorHighlight="@color/clickable_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.225"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.019" />
+
+    <!--8. 설정된 횟수 텍스트-->
+    <TextView
+        android:id="@+id/repeat_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="설정횟수"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/difficultyST"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Home"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradation_animation"
+    tools:context=".SelectRepetition">
+
+    <!--1. 횟수설정화면-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="횟수"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.114" />
+
+    <!--2. 10회설정버튼-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/times10"
+        android:layout_width="184dp"
+        android:layout_height="105dp"
+        android:backgroundTint="@color/clickable_button"
+        android:text="10회"
+        android:textColor="@color/clickable_text"
+        android:textColorHighlight="@color/clickable_text"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.280" />
+
+    <!--3. 30회설정버튼-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/times30"
+        android:layout_width="184dp"
+        android:layout_height="105dp"
+        android:backgroundTint="@color/clickable_button"
+        android:text="30회"
+        android:textColor="@color/clickable_text"
+        android:textColorHighlight="@color/clickable_text"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.580" />
+
+    <!--4. 50회설정버튼-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/times50"
+        android:layout_width="184dp"
+        android:layout_height="105dp"
+        android:backgroundTint="@color/clickable_button"
+        android:text="50회"
+        android:textColor="@color/clickable_text"
+        android:textColorHighlight="@color/clickable_text"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.880" />
+
+    <!--5. 뒤로가기버튼-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/Back"
+        android:layout_width="78dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/clickable_button"
+        android:text="뒤로가기"
+        android:textColor="@color/clickable_text"
+        android:textColorHighlight="@color/clickable_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.019" />
+
+    <!--6. 메인화면버튼-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/Home"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/clickable_button"
+        android:text="홈"
+        android:textColor="@color/clickable_text"
+        android:textColorHighlight="@color/clickable_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.225"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.019" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
