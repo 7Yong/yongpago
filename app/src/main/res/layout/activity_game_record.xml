@@ -52,7 +52,7 @@
             android:shadowDx="2"
             android:shadowDy="2"
             android:shadowRadius="1"
-            android:text="0승  0패"
+            android:text="0승"
             android:textColor="@color/white"
             android:textSize="48sp"
             android:textStyle="normal" />
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="승률: 00%"
+            android:text=""
             android:textColor="@color/white"
             android:textSize="12sp" />
 
