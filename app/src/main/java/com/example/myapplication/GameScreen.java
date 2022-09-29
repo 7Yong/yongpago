@@ -46,7 +46,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class GameScreen extends AppCompatActivity {
-    //타이머 변수 선언
+    //타이머 변수 선언2
     ProgressBar prog=null;
     Timer timer=null;
     TimerTask timerTask=null;
