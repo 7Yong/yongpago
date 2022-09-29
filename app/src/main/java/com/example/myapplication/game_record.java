@@ -132,7 +132,7 @@ public class game_record extends AppCompatActivity {
                     String jwin = jsonObject.getString("win");
                     win = Integer.parseInt(jwin);
                     game_record = findViewById(R.id.recordText);
-                    game_record.setText(win + "승 "  + 1 + "패");
+                    game_record.setText(win + "승 ");
                 }
             }
             catch (JSONException e)
