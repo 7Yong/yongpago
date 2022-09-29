@@ -24,10 +24,8 @@ public class game_record extends AppCompatActivity {
     private Button back;
     private Button home;
     public int defeat;
-    private int rate;
     private TextView total_game;
     private TextView game_record;
-    private TextView game_rate;
     private TextView Max_score;
     public int number;
     public int win;
@@ -45,11 +43,9 @@ public class game_record extends AppCompatActivity {
 //        rate = (win / number) * 100;
         total_game = findViewById(R.id.totalGameText);
         game_record = findViewById(R.id.recordText);
-        game_rate = findViewById(R.id.winrateText);
         Max_score = findViewById(R.id.maxScoreText);
         total_game.setText("총 " + number + "판 " +"중");
         game_record.setText(win + "승 "  + defeat + "패");
-        game_rate.setText("승률: 50%");
         Max_score.setText("최대 점수: " + score + "");
         back = findViewById(R.id.Back);
         back.setOnClickListener(new View.OnClickListener() {
@@ -132,7 +128,7 @@ public class game_record extends AppCompatActivity {
                     String jwin = jsonObject.getString("win");
                     win = Integer.parseInt(jwin);
                     game_record = findViewById(R.id.recordText);
-                    game_record.setText(win + "승 ");
+                    game_record.setText(win + "승");
                 }
             }
             catch (JSONException e)
