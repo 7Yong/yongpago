@@ -64,11 +64,11 @@ public class game_record extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 AlertDialog.Builder builder = new AlertDialog.Builder(game_record.this);
-//    6. 게임종료 확인창
+                //게임종료 확인창
                 builder.setMessage("메인화면으로 가시겠습니까?");
                 builder.setTitle("메인화면 알림창")
                         .setCancelable(false)
-//    7. Yes버튼 -> 홈화면으로 이동
+                        //Yes버튼 -> 홈화면으로 이동
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int i) {
@@ -76,7 +76,7 @@ public class game_record extends AppCompatActivity {
                                 startActivity(intent1);
                             }
                         })
-//    8. No버튼 -> 게임종료 버튼 액션 취소
+                        //No버튼 -> 게임종료 버튼 액션 취소
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int i) {
@@ -90,7 +90,7 @@ public class game_record extends AppCompatActivity {
         });
 
     }
-
+    //전체 게임횟수 받아오기
     private void GetGame()
     {
         String url = "http://192.168.0.11/show_record_game.php";
@@ -117,7 +117,7 @@ public class game_record extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(game_record.this);
         requestQueue.add(stringRequest);
     }
-
+    //승패 표시
     private void GetResult()
     {
         String url = "http://192.168.0.11/show_record_result.php";
@@ -144,7 +144,7 @@ public class game_record extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(game_record.this);
         requestQueue.add(stringRequest);
     }
-
+    //최대 점수 표시
     private void GetScore()
     {
         String url = "http://192.168.0.11/show_record_score.php";

@@ -34,8 +34,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.184" />
 
-
-
     <TextView
         android:id="@+id/inserted_word3"
         android:layout_width="wrap_content"

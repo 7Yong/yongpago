@@ -37,55 +37,63 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class result_screen extends AppCompatActivity {
+    //홈버튼 선언
     private Button home;
+    //게임 결과 스트링 선언
     private String get_result;
+    //게임 결과 텍스트 선언
     private TextView result_text;
+    //서버 아이피 선언
     private static String IP_ADDRESS = "192.168.0.11";
+    //태그 선언
     private static String TAG = "myapplication";
-
+    //json데이터를 받을 배열 선언
     private ArrayList<WordData> mArrayList;
+    //리스트 어댑터 선언
     private WordAdapter mAdapter;
+    //리사이클러뷰를 활용해 리스트에 표시
     private RecyclerView mRecyclerView;
+    //json 스트링 선언
     private String mJsonString;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_screen);
-
+        //리사이클러뷰 리스트 활성
         mRecyclerView = (RecyclerView) findViewById(R.id.listView_main_list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+        //json데이터 받을 배열 활성
         mArrayList = new ArrayList<>();
-
+        //리스트 어댑터 활성
         mAdapter = new WordAdapter(this, mArrayList);
         mRecyclerView.setAdapter(mAdapter);
-
+        //결과보기 버튼 활성
         Button button_all = (Button) findViewById(R.id.show_result);
         button_all.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
+                //리스트 초기화
                 mArrayList.clear();
+                //어댑터로 받아온 데이터로 변경
                 mAdapter.notifyDataSetChanged();
-
+                //json 데이터를 받아올 함수
                 GetData task = new GetData();
                 task.execute( "http://" + IP_ADDRESS + "/result.php", "");
             }
         });
-
+        //게임 결과를 GameScreen에서 받아옴
         Intent intent = getIntent();
         get_result = intent.getStringExtra("result");
         result_text = findViewById(R.id.game_result);
         result_text.setText(get_result);
+        //홈버튼 활성
         home = findViewById(R.id.Home);
         home.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 AlertDialog.Builder builder = new AlertDialog.Builder(result_screen.this);
-//    6. 게임종료 확인창
                 builder.setMessage("메인화면으로 가시겠습니까?");
                 builder.setTitle("메인화면 알림창")
                         .setCancelable(false)
-//    7. Yes버튼 -> 홈화면으로 이동
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int i) {
@@ -94,7 +102,6 @@ public class result_screen extends AppCompatActivity {
                                 startActivity(intent5);
                             }
                         })
-//    8. No버튼 -> 게임종료 버튼 액션 취소
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int i) {
@@ -107,7 +114,7 @@ public class result_screen extends AppCompatActivity {
             }
         });
     }
-
+    //메인화면으로 돌아가면 게임데이터 초기화
     private void initialize()
     {
         String url = "http://192.168.0.11/Initialize.php";
@@ -125,7 +132,7 @@ public class result_screen extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(result_screen.this);
         requestQueue.add(stringRequest);
     }
-
+    //직전에 진행한 게임 데이터를 불러오는 함수
     private class GetData extends AsyncTask<String, Void, String> {
 
         ProgressDialog progressDialog;
@@ -222,7 +229,7 @@ public class result_screen extends AppCompatActivity {
         }
     }
 
-
+    //게임 데이터를 json 형식으로 받아오는 함수
     private void showResult(){
 
         String TAG_JSON="root";

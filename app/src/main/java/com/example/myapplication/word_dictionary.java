@@ -29,40 +29,55 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class word_dictionary extends AppCompatActivity {
+    //뒤로가기버튼 선언
     private Button back;
+    //홈버튼 선언
     private Button home;
+    //마이크버튼 선언
     private Button mic;
+    //음성입력 단어 텍스트뷰 선언
     private TextView search_text;
+    //단어정보 텍스트뷰 선언
     public TextView word_info;
+    //음성입력 단어 스트링 선언
     public String mic_str;
+    //검색단어 스트링 선언
     public String app_word;
+    //검색단어 품사 스트링 선언
     public String app_part;
+    //검색단어 뜻 스트링 선언
     public String app_mean;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_word_dictionary);
+        //음성입력 단어 텍스트뷰 활성
         search_text =findViewById(R.id.search_word);
+        //단어정보 텍스트뷰 활성
         word_info = findViewById(R.id.word_info);
+        //마이크버튼 활성
         mic = findViewById(R.id.Mic);
+        //뒤로가기버튼 활성
         back = findViewById(R.id.Back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //이전화면으로 이동
                 Intent intent1 = new Intent(word_dictionary.this , MainActivity.class);
-                startActivity(intent1);//4. 횟수설정화면으로 이동
+                startActivity(intent1);
             }
         });
+        //홈버튼 활성
         home = findViewById(R.id.Home);
         home.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 AlertDialog.Builder builder = new AlertDialog.Builder(word_dictionary.this);
-//    6. 게임종료 확인창
+                //홈버튼 확인창
                 builder.setMessage("메인화면으로 가시겠습니까?");
                 builder.setTitle("메인화면 알림창")
                         .setCancelable(false)
-//    7. Yes버튼 -> 홈화면으로 이동
+                        //Yes버튼 -> 홈화면으로 이동
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int i) {
@@ -70,7 +85,7 @@ public class word_dictionary extends AppCompatActivity {
                                 startActivity(intent1);
                             }
                         })
-//    8. No버튼 -> 게임종료 버튼 액션 취소
+                        //No버튼 -> 홈버튼 액션 취소
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int i) {
@@ -139,12 +154,15 @@ public class word_dictionary extends AppCompatActivity {
 
             ArrayList<String> results = data
                     .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-
+            //마이크로 입력한 단어 데이터
             mic_str = results.get(0);
+            //마이크로 입력한 단어 표시
             search_text.setText(mic_str);
+            //검색한 단어 정보 불러오기
             GetWord();
         }
     }
+    //검색한 단어 정보 불러오는 함수
     private void GetWord()
     {
         String url = "http://192.168.0.11/search_word.php?word=" + mic_str;

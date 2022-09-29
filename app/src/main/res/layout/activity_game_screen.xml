@@ -8,12 +8,6 @@
     android:background="@drawable/gradation_chat"
     tools:context=".GameScreen">
 
-    <!--1. 남은횟수텍스트-->
-
-    <!--2. 입력한단어텍스트-->
-
-    <!--3. 플레이어(어플)이미지-->
-
     <TextView
         android:id="@+id/remain_repeat"
         android:layout_width="wrap_content"
@@ -40,7 +34,6 @@
         app:layout_constraintVertical_bias="0.700"
         app:srcCompat="@drawable/enphago_logo" />
 
-    <!--4. 플레이어(유저)이미지-->
     <ImageView
         android:id="@+id/user_img"
         android:layout_width="128dp"
@@ -53,18 +46,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.700"
         app:srcCompat="@drawable/user_icon" />
-
-    <!--5. 끝말표시텍스트박스-->
-
-    <!--6. 입력텍스트박스-->
-
-    <!--7. 플레이어(어플)점수-->
-
-    <!--8. 플레이어(유저)점수-->
-
-    <!--9. 제한시간바-->
-
-    <!--10. 난이도 확인 텍스트  -->
 
     <TextView
         android:id="@+id/app_point"
@@ -162,7 +143,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.279" />
 
-    <!--7. 메인화면으로가기-->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/Home"
         android:layout_width="wrap_content"

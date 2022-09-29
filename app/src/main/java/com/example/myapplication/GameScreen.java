@@ -311,32 +311,44 @@ public class GameScreen extends AppCompatActivity {
 
             ArrayList<String> results = data
                     .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-
+            //마이크로 입력한 단어 받음
             mic_str = results.get(0);
             boolean bool = mic_str.startsWith(app_word_last);
+            //마이크로 입력한 단어 끝말 받음
             mic_str_last = mic_str.substring(mic_str.length() - 1);
+            //마이크로 입력한 단어가 2글자 이상일 때
             if(mic_str.length()>1){
                 if(bool) {
+                    //패스버튼 비활성화
                     pass.setEnabled(false);
+                    //마이크버튼 비활성화
                     mic.setEnabled(false);
+                    //대기시간 1초에서 1분으로 설정
                     int minimumValue = 1000;
                     int maximumValue = 60000;
-
+                    //1초에서 1분사이의 시간을 랜덤으로 대기시간을 가짐
                     Random random = new Random();
                     int randomValue = random.nextInt(maximumValue - minimumValue + 1) + minimumValue;
+                    //마이크로 입력한 단어 텍스트로 표시
                     tv.setText("유저: " + mic_str);
+                    //마이크로 입력한 단어 끝말 텍스트로 표시
                     tv_last.setText("끝말: " + mic_str_last);
                     //유저 점수 = (입력한 단어 길이 X 10) + 남은시간
                     user_score = user_score + (mic_str.length() * 10) + get_second;
                     user_score_text.setText(user_score+"");
+                    //마이크로 입력한 단어 데이터 베이스에 저장
                     insert_user_data();
+                    //타이머 스탑
                     stopTimer();
+                    //타이머 시작
                     initProg();
-                    startTimerThread();//타이머 시작
+                    startTimerThread();
+                    //1초에서 1분사이의 랜덤한 대기시간 후 동작
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            //어플이 단어 입력
                             GetData();
                         }
                     }, randomValue); //딜레이 타임 조절
@@ -351,7 +363,7 @@ public class GameScreen extends AppCompatActivity {
             }
         }
     }
-
+    //어플이 입력하는 단어(유저가 입력한 단어 끝말로 시작함)
     private void GetData()
     {
         String url = "http://192.168.0.11/get_word.php?word=" + mic_str_last;
@@ -410,6 +422,7 @@ public class GameScreen extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(GameScreen.this);
         requestQueue.add(stringRequest);
     }
+    //랜덤한 단어를 어플이 입력(패스버튼 클릭 시, 시간초가 지났을 시 작동)
     private void GetWord()
     {
         String url = "http://192.168.0.11/firstword.php?";
@@ -437,7 +450,7 @@ public class GameScreen extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(GameScreen.this);
         requestQueue.add(stringRequest);
     }
-
+    //유저가 입력한 단어를 데이터 베이스에 저장
     private void insert_user_data()
     {
         String url = "http://192.168.0.11/insert.php?word=" + mic_str + "&inputplayer=유저";
@@ -455,7 +468,7 @@ public class GameScreen extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(GameScreen.this);
         requestQueue.add(stringRequest);
     }
-
+    //어플이 입력한 단어를 데이터 베이스에 저장
     private void insert_app_data()
     {
         String url = "http://192.168.0.11/insert.php?word=" + app_word + "&inputplayer=어플";
@@ -473,7 +486,7 @@ public class GameScreen extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(GameScreen.this);
         requestQueue.add(stringRequest);
     }
-
+    //승리 결과를 데이터 베이스에 저장
     private void insert_record1()
     {
         String url = "http://192.168.0.11/record.php?result=승" + "&score=" + user_score;
@@ -491,7 +504,7 @@ public class GameScreen extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(GameScreen.this);
         requestQueue.add(stringRequest);
     }
-
+    //패배 결과를 데이터 베이스에 저장
     private void insert_record2()
     {
         String url = "http://192.168.0.11/record.php?result=패" + "&score=" + user_score;
@@ -509,7 +522,7 @@ public class GameScreen extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(GameScreen.this);
         requestQueue.add(stringRequest);
     }
-
+    //게임도중 종료 시 데이터 베이스 초기화
     private void initialize()
     {
         String url = "http://192.168.0.11/Initialize.php";

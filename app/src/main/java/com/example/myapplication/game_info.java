@@ -28,11 +28,11 @@ public class game_info extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 AlertDialog.Builder builder = new AlertDialog.Builder(game_info.this);
-//    6. 게임종료 확인창
+                //게임종료 확인창
                 builder.setMessage("메인화면으로 가시겠습니까?");
                 builder.setTitle("메인화면 알림창")
                         .setCancelable(false)
-//    7. Yes버튼 -> 홈화면으로 이동
+                        //Yes버튼 -> 홈화면으로 이동
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int i) {
@@ -40,7 +40,7 @@ public class game_info extends AppCompatActivity {
                                 startActivity(intent1);
                             }
                         })
-//    8. No버튼 -> 게임종료 버튼 액션 취소
+                        //No버튼 -> 게임종료 버튼 액션 취소
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int i) {
